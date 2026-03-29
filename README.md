@@ -87,6 +87,7 @@ Simple payload example (one row logged per submission):
 List payload example - sleep phase logger (one row logged per item in the list):
 ```
 "payload": {
+  "timestamp": "2026-03-29T09:00:00+02:00",
   "date": "2026-03-29",
   "entries": [
     { "phase": "deep", "duration_seconds": 2760 },
