@@ -51,7 +51,7 @@ const req = new Request(envelope.target_url);
 req.method = "POST";
 req.headers = { "Content-Type": "application/json" };
 req.body = JSON.stringify(envelope.payload);
-req.timeoutInterval = 15;
+req.timeoutInterval = 60; // seconds before giving up — increase if your payload is large
 
 try {
   const responseText = await req.loadString();
