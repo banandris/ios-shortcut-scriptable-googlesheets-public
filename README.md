@@ -43,9 +43,9 @@ Start from Google Sheets — this is where your data will live, and it's how you
 - With the spreadsheet open, click **Extensions > Apps Script**
 - The script editor opens with one default file called `Code.gs`. You will be working with three files instead — create two more by clicking the **+** button next to "Files" and choosing **Script**. Name them `rules` and `logger` (Apps Script adds `.gs` automatically)
 - Paste the contents of each file into the matching tab:
-  - `config.gs` → into `Code.gs` (or rename it to `config`)
-  - `rules.gs` → into your `rules` file
-  - `logger.gs` → into your `logger` file
+  - `config-public.gs` → into `Code.gs` (or rename it to `config`)
+  - `rules-public.gs` → into your `rules` file
+  - `logger-public.gs` → into your `logger` file
 - The only file you need to edit is `config.gs` — there are two things to set:
   - `SHEET_NAME` — the name of the sheet tab (default: `Log`)
   - `COLUMNS` — the list of fields you want to log, in the order you want them as columns in your sheet. These names must exactly match the field names your Shortcut will send
@@ -131,8 +131,8 @@ You can use the `status` field in Shortcuts to branch on success/error, and `mes
 ## Adding a new logger
 
 1. Create a new spreadsheet, open **Extensions > Apps Script**, paste all three files
-2. Edit only `config.gs` — set `SHEET_NAME`, `COLUMNS`, and optionally extend `customRules`
+2. Edit only `config-public.gs` — set `SHEET_NAME`, `COLUMNS`, and optionally extend `customRules`
 3. Deploy as a new Web App, copy the URL
-4. Build a new Shortcut pointing to that URL using the same `scriptable-relay.js`
+4. Build a new Shortcut pointing to that URL using the same `scriptable-relay-public.js`
 
-That's it — `rules.gs`, `logger.gs`, and the Scriptable relay script stay the same.
+That's it — `rules-public.gs`, `logger-public.gs`, and the Scriptable relay script stay the same.

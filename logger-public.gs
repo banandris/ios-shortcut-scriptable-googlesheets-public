@@ -18,9 +18,9 @@ function doPost(e) {
     const rows = flattenPayload(body);
     if (rows.length === 0) return respond({ status: "error", message: "No data to log." });
 
-    for (const row of rows) {
-      sheet.appendRow(COLUMNS.map(col => row[col] !== undefined ? row[col] : ""));
-    }
+    // Batch write all rows in a single API call
+    const values = rows.map(row => COLUMNS.map(col => row[col] !== undefined ? row[col] : ""));
+    sheet.getRange(sheet.getLastRow() + 1, 1, values.length, COLUMNS.length).setValues(values);
 
     return respond({
       status:  "success",
